@@ -60,10 +60,10 @@ inline Vec4 & Vec4::operator*=(const Vec4 & _vec) {
 }
 
 inline Vec4 & Vec4::operator/=(const Vec4 & _vec) {
-	VEC4_CHECK_CUSTOM(std::abs(_vec.x) > std::numeric_limits<pvfloat>::min());
-	VEC4_CHECK_CUSTOM(std::abs(_vec.y) > std::numeric_limits<pvfloat>::min());
-	VEC4_CHECK_CUSTOM(std::abs(_vec.z) > std::numeric_limits<pvfloat>::min());
-	VEC4_CHECK_CUSTOM(std::abs(_vec.w) > std::numeric_limits<pvfloat>::min());
+	VEC4_CHECK_CUSTOM(prevmath::Abs(_vec.x) > std::numeric_limits<pvfloat>::min());
+	VEC4_CHECK_CUSTOM(prevmath::Abs(_vec.y) > std::numeric_limits<pvfloat>::min());
+	VEC4_CHECK_CUSTOM(prevmath::Abs(_vec.z) > std::numeric_limits<pvfloat>::min());
+	VEC4_CHECK_CUSTOM(prevmath::Abs(_vec.w) > std::numeric_limits<pvfloat>::min());
 	x /= _vec.x;
 	y /= _vec.y;
 	z /= _vec.z;
@@ -141,10 +141,10 @@ inline Vec4 Vec4::operator*(const Vec4 & _vec) const {
 }
 
 inline Vec4 Vec4::operator/(const Vec4 & _vec) const {
-	VEC4_CHECK_CUSTOM(std::abs(_vec.x) > std::numeric_limits<pvfloat>::min());
-	VEC4_CHECK_CUSTOM(std::abs(_vec.y) > std::numeric_limits<pvfloat>::min());
-	VEC4_CHECK_CUSTOM(std::abs(_vec.z) > std::numeric_limits<pvfloat>::min());
-	VEC4_CHECK_CUSTOM(std::abs(_vec.w) > std::numeric_limits<pvfloat>::min());
+	VEC4_CHECK_CUSTOM(prevmath::Abs(_vec.x) > std::numeric_limits<pvfloat>::min());
+	VEC4_CHECK_CUSTOM(prevmath::Abs(_vec.y) > std::numeric_limits<pvfloat>::min());
+	VEC4_CHECK_CUSTOM(prevmath::Abs(_vec.z) > std::numeric_limits<pvfloat>::min());
+	VEC4_CHECK_CUSTOM(prevmath::Abs(_vec.w) > std::numeric_limits<pvfloat>::min());
 
 	VEC4_CHECK(_vec);
 	VEC4_CHECK_THIS;
@@ -161,20 +161,12 @@ inline Vec4 Vec4::operator*(pvfloat _val) const {
 }
 
 inline Vec4 Vec4::operator/(pvfloat _val) const {
-	VEC4_CHECK_CUSTOM(std::abs(_val) > std::numeric_limits<pvfloat>::min());
+	VEC4_CHECK_CUSTOM(prevmath::Abs(_val) > std::numeric_limits<pvfloat>::min());
 
 	VEC4_CHECK_THIS;
 	Vec4 _temp(x / _val, y / _val, z / _val, w / _val);
 	VEC4_CHECK(_temp);
 	return _temp;
-}
-
-inline bool Vec4::operator==(const Vec4 & _vec) const {
-	return x == _vec.x && y == _vec.y && z == _vec.z && w == _vec.w;
-}
-
-inline bool Vec4::operator!=(const Vec4 & _vec) const {
-	return x != _vec.x || y != _vec.y || z != _vec.z || w != _vec.w;
 }
 
 inline pvfloat Vec4::Length(const Vec4 & _vec) {

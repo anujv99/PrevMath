@@ -114,8 +114,8 @@ inline Vec2i Vec2i::operator*(const Vec2i & _vec) const {
 }
 
 inline Vec2i Vec2i::operator/(const Vec2i & _vec) const {
-	VEC2I_CHECK_CUSTOM(std::abs(_vec.x) > std::numeric_limits<pvint>::min());
-	VEC2I_CHECK_CUSTOM(std::abs(_vec.y) > std::numeric_limits<pvint>::min());
+	VEC2I_CHECK_CUSTOM(prevmath::Abs(_vec.x) > std::numeric_limits<pvint>::min());
+	VEC2I_CHECK_CUSTOM(prevmath::Abs(_vec.y) > std::numeric_limits<pvint>::min());
 
 	VEC2I_CHECK(_vec);
 	VEC2I_CHECK_THIS;
@@ -132,7 +132,7 @@ inline Vec2i Vec2i::operator*(pvint _val) const {
 }
 
 inline Vec2i Vec2i::operator/(pvint _val) const {
-	VEC2I_CHECK_CUSTOM(std::abs(_val) > std::numeric_limits<pvint>::min());
+	VEC2I_CHECK_CUSTOM(prevmath::Abs(_val) > std::numeric_limits<pvint>::min());
 
 	VEC2I_CHECK_THIS;
 	Vec2i _temp(x / _val, y / _val);
@@ -141,11 +141,17 @@ inline Vec2i Vec2i::operator/(pvint _val) const {
 }
 
 inline bool Vec2i::operator==(const Vec2i & _vec) const {
-	return x == _vec.x && y == _vec.y;
+	VEC2I_CHECK_THIS;
+	VEC2I_CHECK(_vec);
+
+	return (x == _vec.x && y == _vec.y);
 }
 
 inline bool Vec2i::operator!=(const Vec2i & _vec) const {
-	return x != _vec.x || y != _vec.y;
+	VEC2I_CHECK_THIS;
+	VEC2I_CHECK(_vec);
+
+	return !(x == _vec.x && y == _vec.y);
 }
 
 inline pvfloat Vec2i::Length(const Vec2i & _vec) {

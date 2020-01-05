@@ -1,8 +1,13 @@
 
 //VECTORS
-#include <prevmath/vector/vector.hpp>
+#include "vector/vec2.hpp"
+#include "vector/vec2i.hpp"
+#include "vector/vec3.hpp"
+#include "vector/vec4.hpp"
 
-#include <prevmath/vector/vec2.hpp>
-#include <prevmath/vector/vec2i.hpp>
-#include <prevmath/vector/vec3.hpp>
-#include <prevmath/vector/vec4.hpp>
+//MATRIX
+#include "matrix/mat4.hpp""
+
+//HELPERS
+#include "helper.hpp"
+#include "conversion.hpp"

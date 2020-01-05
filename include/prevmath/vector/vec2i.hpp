@@ -1,5 +1,7 @@
 #pragma once
 
+#include "../common.hpp"
+
 namespace prevmath {
 
 	struct Vec2i {

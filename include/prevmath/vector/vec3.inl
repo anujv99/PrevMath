@@ -56,9 +56,9 @@ inline Vec3 & Vec3::operator*=(const Vec3 & _vec) {
 }
 
 inline Vec3 & Vec3::operator/=(const Vec3 & _vec) {
-	VEC3_CHECK_CUSTOM(std::abs(_vec.x) > std::numeric_limits<pvfloat>::min());
-	VEC3_CHECK_CUSTOM(std::abs(_vec.y) > std::numeric_limits<pvfloat>::min());
-	VEC3_CHECK_CUSTOM(std::abs(_vec.z) > std::numeric_limits<pvfloat>::min());
+	VEC3_CHECK_CUSTOM(prevmath::Abs(_vec.x) > std::numeric_limits<pvfloat>::min());
+	VEC3_CHECK_CUSTOM(prevmath::Abs(_vec.y) > std::numeric_limits<pvfloat>::min());
+	VEC3_CHECK_CUSTOM(prevmath::Abs(_vec.z) > std::numeric_limits<pvfloat>::min());
 	x /= _vec.x;
 	y /= _vec.y;
 	z /= _vec.z;
@@ -131,9 +131,9 @@ inline Vec3 Vec3::operator*(const Vec3 & _vec) const {
 }
 
 inline Vec3 Vec3::operator/(const Vec3 & _vec) const {
-	VEC3_CHECK_CUSTOM(std::abs(_vec.x) > std::numeric_limits<pvfloat>::min());
-	VEC3_CHECK_CUSTOM(std::abs(_vec.y) > std::numeric_limits<pvfloat>::min());
-	VEC3_CHECK_CUSTOM(std::abs(_vec.z) > std::numeric_limits<pvfloat>::min());
+	VEC3_CHECK_CUSTOM(prevmath::Abs(_vec.x) > std::numeric_limits<pvfloat>::min());
+	VEC3_CHECK_CUSTOM(prevmath::Abs(_vec.y) > std::numeric_limits<pvfloat>::min());
+	VEC3_CHECK_CUSTOM(prevmath::Abs(_vec.z) > std::numeric_limits<pvfloat>::min());
 
 	VEC3_CHECK(_vec);
 	VEC3_CHECK_THIS;
@@ -150,20 +150,12 @@ inline Vec3 Vec3::operator*(pvfloat _val) const {
 }
 
 inline Vec3 Vec3::operator/(pvfloat _val) const {
-	VEC3_CHECK_CUSTOM(std::abs(_val) > std::numeric_limits<pvfloat>::min());
+	VEC3_CHECK_CUSTOM(prevmath::Abs(_val) > std::numeric_limits<pvfloat>::min());
 
 	VEC3_CHECK_THIS;
 	Vec3 _temp(x / _val, y / _val, z / _val);
 	VEC3_CHECK(_temp);
 	return _temp;
-}
-
-inline bool Vec3::operator==(const Vec3 & _vec) const {
-	return x == _vec.x && y == _vec.y && z == _vec.z;
-}
-
-inline bool Vec3::operator!=(const Vec3 & _vec) const {
-	return x != _vec.x || y != _vec.y || z != _vec.z;
 }
 
 inline Vec2 Vec3::xy() const {

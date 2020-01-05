@@ -2,6 +2,7 @@
 
 #include "vec2.hpp"
 #include "vec3.hpp"
+#include "../common.hpp"
 
 namespace prevmath {
 
@@ -43,9 +44,6 @@ namespace prevmath {
 
 		Vec4 operator*(pvfloat _val) const;
 		Vec4 operator/(pvfloat _val) const;
-
-		bool operator==(const Vec4 & _vec) const;
-		bool operator!=(const Vec4 & _vec) const;
 
 		Vec2 xy() const { return Vec2(x, y); };
 		Vec2 yx() const { return Vec2(y, x); };

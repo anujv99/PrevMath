@@ -82,3 +82,8 @@ inline pvfloat Cos(const T & _val) {
 
 	return _cosine;
 }
+
+template<typename T>
+inline pvfloat Saturate(const T & _val) {
+	return Clamp(_val, static_cast<T>(0), static_cast<T>(1));
+}

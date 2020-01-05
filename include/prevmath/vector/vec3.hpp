@@ -1,6 +1,7 @@
 #pragma once
 
 #include "vec2.hpp"
+#include "../common.hpp"
 
 namespace prevmath {
 
@@ -41,9 +42,6 @@ namespace prevmath {
 
 		Vec3 operator*(pvfloat _val) const;
 		Vec3 operator/(pvfloat _val) const;
-
-		bool operator==(const Vec3 & _vec) const;
-		bool operator!=(const Vec3 & _vec) const;
 
 		Vec2 xy() const;
 		Vec2 yx() const;

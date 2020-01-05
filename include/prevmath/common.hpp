@@ -70,6 +70,9 @@ namespace prevmath {
 	template<typename T>
 	pvfloat Cos(const T & _val);
 
+	template<typename T>
+	pvfloat Saturate(const T & _val);
+
 	#include "common.inl"
 
 }
