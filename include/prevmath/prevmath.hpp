@@ -6,7 +6,7 @@
 #include "vector/vec4.hpp"
 
 //MATRIX
-#include "matrix/mat4.hpp""
+#include "matrix/mat4.hpp"
 
 //HELPERS
 #include "helper.hpp"
