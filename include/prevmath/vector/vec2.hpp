@@ -58,7 +58,8 @@ namespace prevmath {
 		static Vec2 Saturate(const Vec2 & _val);
 		static Vec2 Perpendicular(const Vec2 & _val);
 		static Vec2 UnitCircle(pvfloat _angle);
-		static Vec2 Bezier(const Vec2 & _anchor1, const Vec2 & _anchor2, const Vec2 & _control1, const Vec2 & _control2, const pvfloat & _factor);
+		static Vec2 CubicBezier(const Vec2 & _anchor1, const Vec2 & _anchor2, const Vec2 & _control1, const Vec2 & _control2, const pvfloat & _factor);
+		static Vec2 QuadraticBezier(const Vec2 & _anchor1, const Vec2 & _anchor2, const Vec2 & _control, const pvfloat & _factor);
 		static Vec2 Rotate(const Vec2 & _dir, const pvfloat & _angle);
 	};
 

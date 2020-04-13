@@ -216,7 +216,7 @@ inline Vec2 Vec2::UnitCircle(pvfloat _angle) {
 	return Vec2(prevmath::Cos(_angle), prevmath::Sin(_angle));
 }
 
-inline Vec2 Vec2::Bezier(const Vec2 & _anchor1, const Vec2 & _anchor2, const Vec2 & _control1, const Vec2 & _control2, const pvfloat & _factor) {
+inline Vec2 Vec2::CubicBezier(const Vec2 & _anchor1, const Vec2 & _anchor2, const Vec2 & _control1, const Vec2 & _control2, const pvfloat & _factor) {
 	pvfloat _new_factor = prevmath::Clamp(_factor, static_cast<pvfloat>(0.0), static_cast<pvfloat>(1.0));
 	pvfloat _one_minus_factor = static_cast<pvfloat>(1.0) - _new_factor;
 
@@ -226,6 +226,15 @@ inline Vec2 Vec2::Bezier(const Vec2 & _anchor1, const Vec2 & _anchor2, const Vec
 	pvfloat _d = prevmath::Pow<float, int>(_new_factor, 3);
 
 	return (_a * _anchor1) + (_b * _control1) + (_c * _control2) + (_d * _anchor2);
+}
+
+inline Vec2 Vec2::QuadraticBezier(const Vec2 & _anchor1, const Vec2 & _anchor2, const Vec2 & _control, const pvfloat & _factor) {
+	pvfloat _new_factor = prevmath::Clamp(_factor, static_cast<pvfloat>(0.0), static_cast<pvfloat>(1.0));
+
+	Vec2 _p1 = _anchor1 + (_factor * (_control - _anchor1));
+	Vec2 _p2 = _control + (_factor * (_anchor2 - _control));
+
+	return (_p1 + (_factor * (_p2 - _p1)));
 }
 
 inline Vec2 Vec2::Rotate(const Vec2 & _dir, const pvfloat & _angle) {
